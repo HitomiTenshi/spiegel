@@ -288,6 +288,10 @@ class ChangeListeners extends Process {
   }
 
   _process(listener) {
+    if (listener.db_name) {
+      listener.db_name = decodeURIComponent(listener.db_name);
+    }
+
     return this._processBatchOfChangesLogError(listener)
   }
 }
